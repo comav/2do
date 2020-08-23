@@ -1,0 +1,24 @@
+{
+    "tasks": [
+        {
+            "taskId": 1,
+            "done": false,
+            "title": "Buy some fruits"
+        },
+        {
+            "taskId": 2,
+            "done": true,
+            "title": "Buy some fruits2"
+        },
+        {
+            "taskId": 3,
+            "done": false,
+            "title": "Buy some fruits3"
+        },
+        {
+            "taskId": 4,
+            "done": true,
+            "title": "Buy some fruits4"
+        }
+    ]
+}

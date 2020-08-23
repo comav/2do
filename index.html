@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>To-Do</title>
+    <link href="styles/styles.css" rel="stylesheet">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <div class="hidden" id="delete"></div>
+    
+    </header>
+    <main>
+        <div id="wrapper">
+        </div>
+        <div class="mdc-touch-target-wrapper">
+            <button class="mdc-fab addItem pull-left" onclick="addItem()">
+              <div class="mdc-fab__ripple"></div>
+              <span class="material-icons mdc-fab__icon">add</span>
+            </button>
+          </div>
+    </main>
+</body>
+</html>

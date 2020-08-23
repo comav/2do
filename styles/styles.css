@@ -1,0 +1,35 @@
+.submit {
+  background: -webkit-gradient(linear, right top, left top, from(#0084ff), to(#5900ff));
+  background: linear-gradient(to left, #0084ff, #5900ff);
+  border: none;
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  -webkit-transition: all 5ms ease-in;
+  transition: all 5ms ease-in;
+}
+
+.addItem {
+  z-index: 99;
+  position: absolute;
+  left: 93%;
+  bottom: -500px;
+}
+
+.taskClass {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mdc-icon-button {
+  justify-self: flex-end;
+}
+
+.checkboxDone {
+  margin: 10 10 10 10;
+}
+/*# sourceMappingURL=styles.css.map */
