@@ -1,6 +1,7 @@
 var tasks;
 var tasksRaw;
 var wrapper = document.getElementById('wrapper')
+var body = document.Body
 
 var localStorageItems = { ...localStorage };
 
@@ -48,16 +49,22 @@ function displayTask(task) {
     newTask.appendChild(deleteButton);
 }
 
-function addItem () {
+function addItem() {
     var newTask = document.createElement('div');
     newTask.setAttribute('id', 'createNewTaskBlock')
     var input = document.createElement('input');
     input.setAttribute('id', 'newTaskTitle');
     var submitButton = document.createElement('button');
     submitButton.innerText = 'submit';
+    var overlay = document.createElement('div')
+    overlay.setAttribute('class', 'overlay')
+    overlay.setAttribute('id', 'overlay')
+    overlay.style.position['fixed']
+    overlay.style.display['block']
     newTask.appendChild(input);
-    newTask.appendChild(submitButton);
-    wrapper.appendChild(newTask);
+    newTask.appendChild(submitButton)
+    document.body.appendChild(overlay);
+    document.body.appendChild(newTask);
     submitButton.setAttribute('onclick', 'submitItem()')
 
 }
@@ -80,6 +87,8 @@ function submitItem() {
     newItem.id = itemId;
     localStorage.setItem(itemId, JSON.stringify(newItem))
     document.getElementById('createNewTaskBlock').remove();
+    //delete overlay
+    document.body.setAttribute('class', '')
     renderItems();
 }
 

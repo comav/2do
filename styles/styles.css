@@ -1,3 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+* {
+  z-index: 2;
+  font-family: 'Raleway', sans-serif;
+}
+
+.dimmed {
+  opacity: 0.3;
+  position: absolute;
+  background: #000;
+  z-index: 1;
+  accessible: none;
+}
+
 .submit {
   background: -webkit-gradient(linear, right top, left top, from(#0084ff), to(#5900ff));
   background: linear-gradient(to left, #0084ff, #5900ff);
@@ -31,5 +45,13 @@
 
 .checkboxDone {
   margin: 10 10 10 10;
+}
+
+.mdc-touch-target-wrapper {
+  z-index: 3;
+}
+
+.nobgdim {
+  z-index: 4;
 }
 /*# sourceMappingURL=styles.css.map */

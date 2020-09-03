@@ -8,21 +8,21 @@
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script src="index.js" defer></script>
 </head>
-<body>
+<body id="body">
     <header>
         <div class="logo"></div>
         <div class="hidden" id="delete"></div>
     
     </header>
     <main>
-        <div id="wrapper">
-        </div>
         <div class="mdc-touch-target-wrapper">
             <button class="mdc-fab addItem pull-left" onclick="addItem()">
               <div class="mdc-fab__ripple"></div>
               <span class="material-icons mdc-fab__icon">add</span>
             </button>
           </div>
+        <div id="wrapper">
+        </div>
     </main>
 </body>
 </html>
