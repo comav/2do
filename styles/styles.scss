@@ -10,7 +10,6 @@
     position: absolute;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1;
-    : none;
 }
 
 .submit {
@@ -59,9 +58,26 @@ bottom: 5%;
     height: 100%;
 }
 
-#createNewTaskBlock {
+// #createNewTaskBlock {
+//     width: 100%;
+//     height: 100%;
+//     justify-content: center;
+//     align-items: center;
+//     position: fixed;
+// }
+
+.buttonWrapper {
     display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 95%;
+    width: 97%;
+    position: fixed;
+}
+
+.wrapper {
+    display: flex;
+    height: 100%;
+    align-items: flex-start;
     flex-direction: column;
-    width: 500px;
-    align-items: center;
 }

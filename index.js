@@ -2,8 +2,37 @@ var tasks;
 var tasksRaw;
 var wrapper = document.getElementById('wrapper')
 var body = document.Body
+var addButton = document.getElementById('addButton')
+var today = new Date();
+var time = today.getHours();
+var sunData;
+var sunset;
 
-var localStorageItems = { ...localStorage };
+var xttp = new XMLHttpRequest();
+xttp.open('GET', 'https://api.sunrise-sunset.org/json?lat=49.4447888&lng=32.0587805&date=today', true);
+xttp.responseType = 'json';
+xttp.send();
+xttp.onload = () => {
+    sunData = xttp.response;
+    sunset = sunData.results.sunset;
+    if (sunset.length == 10) {
+        sunset = sunset.slice(0, 1);
+        sunset = parseInt(sunset);
+        console.log(sunset)
+        sunset = sunset + 12 + 3;
+        console.log(sunset)
+    }
+
+    if (sunset < time) {
+        document.body.style.backgroundColor['#000']
+    } else {
+        document.body.style.backgroundColor['#fff']
+    }
+}
+
+var localStorageItems = {
+    ...localStorage
+};
 
 function allStorage() {
     var values = [],
@@ -50,8 +79,7 @@ function displayTask(task) {
 }
 
 function addItem() {
-    var newTask = document.createElement('div');
-    newTask.setAttribute('id', 'createNewTaskBlock')
+    var newTask = document.getElementById('createNewTaskBlock')
     var input = document.createElement('input');
     input.setAttribute('id', 'newTaskTitle');
     var submitButton = document.createElement('button');
@@ -64,9 +92,8 @@ function addItem() {
     newTask.appendChild(input);
     newTask.appendChild(submitButton)
     document.body.appendChild(overlay);
-    document.body.appendChild(newTask);
     submitButton.setAttribute('onclick', 'submitItem()')
-
+    addButton.setAttribute('onclick', '')
 }
 
 function idName() {
@@ -90,9 +117,14 @@ function submitItem() {
     //delete overlay
     document.body.setAttribute('class', '')
     renderItems();
+    addButton.setAttribute('onclick', 'addItem()')
 }
 
 function removeItem(itemId) {
     localStorage.removeItem(itemId);
     renderItems();
+}
+
+function getSunsetSunrise() {
+
 }
