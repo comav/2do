@@ -1,16 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 * {
-    z-index: 2;
     font-family: 'Raleway', sans-serif;
-}
-
-.dimmed {
-    opacity: 0.3;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.5);
+    position: relative;
     z-index: 1;
-    : none;
 }
 
 .submit {
@@ -22,7 +15,6 @@
     transition: all 5ms ease-in;
 }
 .addItem {
-    z-index: 99;
     position: absolute;
     left: 93%;
     bottom: -500px;
@@ -37,8 +29,12 @@
     }
 }
 
+.mdc-fab {
+    width: 48;
+}
+
 .mdc-icon-button {
-    justify-self: flex-end;
+    justify-self: center;
 }
 
 .checkboxDone {
@@ -46,10 +42,7 @@
 }
 
 .mdc-touch-target-wrapper {
-    z-index: 3;
     position: fixed;
-right: 0;
-bottom: 5%;
 }
 
 .overlay {
@@ -59,9 +52,30 @@ bottom: 5%;
     height: 100%;
 }
 
-#createNewTaskBlock {
+.buttonWrapper {
     display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 95%;
+    width: 97%;
+    position: fixed;
+}
+
+.wrapper {
+    display: flex;
+    height: 100%;
+    align-items: flex-start;
     flex-direction: column;
-    width: 500px;
+}
+
+#newTaskWrapper {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: center;
     align-items: center;
+}
+
+#fabLabel {
+    z-index: 111;
 }

@@ -1,15 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 * {
-  z-index: 2;
   font-family: 'Raleway', sans-serif;
-}
-
-.dimmed {
-  opacity: 0.3;
-  position: absolute;
-  background: #000;
+  position: relative;
   z-index: 1;
-  accessible: none;
 }
 
 .submit {
@@ -24,7 +17,6 @@
 }
 
 .addItem {
-  z-index: 99;
   position: absolute;
   left: 93%;
   bottom: -500px;
@@ -37,10 +29,21 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-negative: 3;
+      flex-shrink: 3;
+}
+
+.taskClass:hover {
+  background-color: #414141;
+}
+
+.mdc-fab {
+  width: 48;
 }
 
 .mdc-icon-button {
-  justify-self: flex-end;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 .checkboxDone {
@@ -48,10 +51,60 @@
 }
 
 .mdc-touch-target-wrapper {
-  z-index: 3;
+  position: fixed;
 }
 
-.nobgdim {
-  z-index: 4;
+.overlay {
+  opacity: 0.5;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.buttonWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 95%;
+  width: 97%;
+  position: fixed;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#newTaskWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#fabLabel {
+  z-index: 111;
 }
 /*# sourceMappingURL=styles.css.map */

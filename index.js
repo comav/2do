@@ -2,8 +2,39 @@ var tasks;
 var tasksRaw;
 var wrapper = document.getElementById('wrapper')
 var body = document.Body
+var addButton = document.getElementById('addButton')
+var today = new Date();
+var time = today.getHours();
+var sunData;
+var sunset;
+var fabLabel = document.getElementById('fabLabel');
 
-var localStorageItems = { ...localStorage };
+
+var xttp = new XMLHttpRequest();
+xttp.open('GET', 'https://api.sunrise-sunset.org/json?lat=49.4447888&lng=32.0587805&date=today', true);
+xttp.responseType = 'json';
+xttp.send();
+xttp.onload = () => {
+    sunData = xttp.response;
+    sunset = sunData.results.sunset;
+    if (sunset.length == 10) {
+        sunset = sunset.slice(0, 1);
+        sunset = parseInt(sunset);
+        console.log(sunset)
+        sunset = sunset + 12 + 3;
+        console.log(sunset)
+    }
+
+    if (sunset < time) {
+        document.body.style.backgroundColor['#000']
+    } else {
+        document.body.style.backgroundColor['#fff']
+    }
+}
+
+var localStorageItems = {
+    ...localStorage
+};
 
 function allStorage() {
     var values = [],
@@ -50,23 +81,12 @@ function displayTask(task) {
 }
 
 function addItem() {
-    var newTask = document.createElement('div');
-    newTask.setAttribute('id', 'createNewTaskBlock')
+    animateButtonHide();
     var input = document.createElement('input');
     input.setAttribute('id', 'newTaskTitle');
-    var submitButton = document.createElement('button');
-    submitButton.innerText = 'submit';
-    var overlay = document.createElement('div')
-    overlay.setAttribute('class', 'overlay')
-    overlay.setAttribute('id', 'overlay')
-    overlay.style.position['fixed']
-    overlay.style.display['block']
-    newTask.appendChild(input);
-    newTask.appendChild(submitButton)
-    document.body.appendChild(overlay);
-    document.body.appendChild(newTask);
-    submitButton.setAttribute('onclick', 'submitItem()')
-
+    fabLabel.innerText = '';
+    fabLabel.appendChild(input);
+    addButton.setAttribute('onclick', 'submitItem()')
 }
 
 function idName() {
@@ -86,13 +106,30 @@ function submitItem() {
     var itemId = idName();
     newItem.id = itemId;
     localStorage.setItem(itemId, JSON.stringify(newItem))
-    document.getElementById('createNewTaskBlock').remove();
-    //delete overlay
-    document.body.setAttribute('class', '')
+    document.getElementById('newTaskTitle');
     renderItems();
+    addButton.setAttribute('onclick', 'addItem()')
+    buttonWrapper.style.zIndex[1];
+    animateButtonShow()
+    fabLabel.innerText = 'add';
 }
 
 function removeItem(itemId) {
     localStorage.removeItem(itemId);
     renderItems();
+}
+
+function animateButtonHide () {
+    $('.mdc-fab').animate({
+        width: 300,
+    }), 200;
+    $('mdc-fab__icon').animate({
+        opacity: 0.1,
+    }),10
+}
+
+function animateButtonShow(){
+    $('.mdc-fab').animate({
+        width: 101.23,
+    }),300
 }
