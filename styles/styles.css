@@ -1,7 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 * {
   font-family: 'Raleway', sans-serif;
+<<<<<<< HEAD
   position: relative;
+=======
+}
+
+.dimmed {
+  opacity: 0.3;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+>>>>>>> 0bd4b3b87ed04177b105d30ea9702653f3ab100d
   z-index: 1;
 }
 
@@ -35,10 +44,13 @@
 
 .taskClass:hover {
   background-color: #414141;
+<<<<<<< HEAD
 }
 
 .mdc-fab {
   width: 48;
+=======
+>>>>>>> 0bd4b3b87ed04177b105d30ea9702653f3ab100d
 }
 
 .mdc-icon-button {
@@ -51,7 +63,14 @@
 }
 
 .mdc-touch-target-wrapper {
+<<<<<<< HEAD
   position: fixed;
+=======
+  z-index: 3;
+  position: fixed;
+  right: 0;
+  bottom: 5%;
+>>>>>>> 0bd4b3b87ed04177b105d30ea9702653f3ab100d
 }
 
 .overlay {
@@ -74,6 +93,7 @@
   height: 95%;
   width: 97%;
   position: fixed;
+<<<<<<< HEAD
 }
 
 .wrapper {
@@ -106,5 +126,21 @@
 
 #fabLabel {
   z-index: 111;
+=======
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+>>>>>>> 0bd4b3b87ed04177b105d30ea9702653f3ab100d
 }
 /*# sourceMappingURL=styles.css.map */
