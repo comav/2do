@@ -8,6 +8,9 @@ var time = today.getHours();
 var sunData;
 var sunset;
 var fabLabel = document.getElementById('fabLabel');
+var fabIcon = document.getElementById('fabIcon');
+var sendButton = document.createElement('button');
+var input = document.createElement('input');
 
 
 var xttp = new XMLHttpRequest();
@@ -81,12 +84,23 @@ function displayTask(task) {
 }
 
 function addItem() {
-    animateButtonHide();
-    var input = document.createElement('input');
+    animateButtonHide()
     input.setAttribute('id', 'newTaskTitle');
+    input.setAttribute('onclick', '');
+    sendButton.innerText = 'send';
+    sendButton.setAttribute('id', 'sendButton');
+    sendButton.setAttribute('onclick', 'submitItem()');
+    sendButton.setAttribute('class', 'mdc-icon-button material-icons')
     fabLabel.innerText = '';
+    fabIcon.style.display = 'none';
     fabLabel.appendChild(input);
-    addButton.setAttribute('onclick', 'submitItem()')
+    fabLabel.appendChild(sendButton)
+    addButton.setAttribute('onclick', '')
+    fabLabel.style.display = 'flex'
+    fabLabel.style.alignItems = 'center'
+    addButton.style.pointerEvents = 'none';
+    input.style.pointerEvents = 'auto';
+    sendButton.style.pointerEvents = 'auto';
 }
 
 function idName() {
@@ -108,10 +122,11 @@ function submitItem() {
     localStorage.setItem(itemId, JSON.stringify(newItem))
     document.getElementById('newTaskTitle');
     renderItems();
-    addButton.setAttribute('onclick', 'addItem()')
-    buttonWrapper.style.zIndex[1];
-    animateButtonShow()
+    input.remove();
+    sendButton.remove();
     fabLabel.innerText = 'add';
+    fabIcon.style.display = 'flex'
+    animateButtonShow();
 }
 
 function removeItem(itemId) {
@@ -132,4 +147,12 @@ function animateButtonShow(){
     $('.mdc-fab').animate({
         width: 101.23,
     }),300
+}
+
+function wait(ms)
+{
+    var d = new Date();
+    var d2 = null;
+    do { d2 = new Date(); }
+    while(d2-d < ms);
 }
